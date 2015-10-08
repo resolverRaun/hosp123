@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2015 at 09:12 PM
+-- Generation Time: Oct 08, 2015 at 09:25 PM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -127,6 +127,7 @@ CREATE TABLE IF NOT EXISTS `tbl_personal_info` (
 
 CREATE TABLE IF NOT EXISTS `tbl_prev_ku_course` (
   `id` int(11) NOT NULL COMMENT 'Primary key for the previous ku course of applicants',
+  `prev_course_applicant` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Applicant Taken Course (0 - Yes , 1 - No)',
   `course` varchar(255) NOT NULL DEFAULT '' COMMENT 'Previous KU course done by the applicant',
   `registration_no` int(11) NOT NULL DEFAULT '0' COMMENT 'Previous KU registration number of the applicant',
   `applicant_id` int(11) NOT NULL COMMENT 'Id of the applicant'
