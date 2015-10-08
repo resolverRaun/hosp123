@@ -1,0 +1,911 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 26, 2014, 10:12:55 AM
+    Author     : iSaroj
+*/
+@import "bootstrap";
+@import "compass";
+// Variables Size
+$font-size-h0:            floor(($font-size-base * 3.9)) !default; // ~54px
+
+//Variables Colors
+$info :            #42A4BB; // blue
+$info-light :      #5dbad1; // light blue
+$success :         #73AE50; // green
+$primary :         #133783; // primary
+$primary-light :   #174699; // primary Light
+$dark :            #2f2f2f; //Dark
+
+
+body,
+html{
+    width: 100%;
+    height: 100%;
+}
+body {
+    webkit-tap-highlight-color: rgba(255,255,255,.2);
+    font-family: 'Lato', sans-serif;
+}
+::-moz-selection {
+    @include single-text-shadow(none);
+    background: #fcfcfc;
+    background: rgba(255,255,255,.2);
+}
+
+::selection {
+    @include single-text-shadow(none);
+    background: #fcfcfc;
+    background: rgba(255,255,255,.2);
+}
+::-webkit-input-placeholder {
+    color:    #CCCCCC;
+}
+:-moz-placeholder {
+    color:    #CCCCCC;
+}
+::-moz-placeholder {
+    color:    #CCCCCC;
+}
+:-ms-input-placeholder {
+    color:    #CCCCCC;
+}
+img::selection {
+    background: 0 0;
+}
+a {
+    :focus,
+    :hover {
+        text-decoration: none;
+        outline: none;
+    }
+}
+img::-moz-selection {
+    background: 0 0;
+}
+figure {
+    img {
+        width: 100%; 
+        height: auto;
+    }
+}
+h1, h2, h3, h4, h5, h6, 
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #000000;
+}
+/*Buttons*/
+.btn {
+    border: none;
+    @include border-radius(4px, 4px);
+    @include transition(background 0.2s linear);
+    &:hover,
+    &:focus {
+        @include box-shadow(none);
+    }
+    &.btn-lg {
+        padding: 10px 20px;
+    }
+    &.btn-info {
+        background-color: $info;
+        &:hover,
+        &:focus {
+            background-color: $info-light;
+        }
+    }
+    &.btn-primary {
+        background-color: $primary;
+        &:hover,
+        &:focus {
+            background-color: $primary-light;
+        }
+    }
+}
+/*Golfkeeper Header*/
+.logo {
+    max-width: 197px;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+header {
+    position: relative;
+    z-index: 11;
+}
+/*Navbar*/
+.navbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.navbar-brand {
+    padding: 20px 15px;
+    height: auto;
+}
+/*Full page intro*/
+.verticle-align {
+    display: table;
+    .verticle-align-cell {
+        display: table-cell;
+        vertical-align: middle;
+        &.align-bottom {
+            vertical-align: bottom;
+        }
+    }
+}
+.golfkeeper-intro {
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-top: 100px;
+    color: #fff;
+    background: url(../img/app-bg.jpg);
+    background-color: #000;
+    @include background-size(cover);
+    background-position: center center;
+    .golfkeeper-intro-content {
+        display: block;       
+        border-bottom: 8px solid $success;
+        .golfkeeper-screenshot {
+            figure {
+                padding-top: 30px;
+                text-align: center;
+                img {
+                    max-width: 60%;
+                    display: inline-block;
+                }
+            }
+        }
+        .brand-heading,
+        .intro-text {
+            color: #000000;
+            @include text-shadow(1px 1px 1px #FFFFFF);
+        }
+        .brand-heading {
+            font-size: $font-size-h2;
+            font-weight: 700;
+        }
+        .intro-text {
+            font-size: $font-size-h4;
+            margin-top: 0;
+        }
+        a {
+            margin-top: 15px;
+            line-height: 28px;
+            span,
+            i {
+                display: inline-block;
+                margin-top: 1px;
+            }
+            span {
+                float: left;
+            }
+            i {
+                margin-top: 5px;
+            }
+        }
+    }
+}
+.not-front {
+    .golfkeeper-intro {  
+        background: url(../img/app-inner-page.jpg);
+        @include background-size(cover);
+        height: auto;
+        .golfkeeper-intro-content {
+            .golfkeeper-screenshot{
+                figure {
+                    height: auto;
+                    img {
+                        position: relative;
+                        width: 85%;
+                    }
+                }
+            } 
+        }
+    }
+}
+/*Golfkeeper About*/
+.golfkeeper-about {
+    .golfkeeper-content {
+        .lead {
+            color: #000000;
+            font-size: $font-size-h4;
+            padding: 30px 0;
+            text-align: center;
+        }
+    }
+}
+.golfkeeper-page-content {
+    padding: 30px 0;
+    &.golfkeeper-page-about {
+        padding-bottom: 0;
+    }
+    h3 {
+        font-size: 28px;
+        font-weight: normal;
+    }
+    p {
+        color: #969696;
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
+.carousel {
+    .carousel-control {
+        background-image: none;
+        @include transition(opacity 0.2s linear);
+        span {
+            border: 1px solid #CCCCCC;
+            @include border-radius(100%, 100%);
+        }
+        .glyphicon-chevron-left {
+            left: 0;
+            margin: 0;
+        }
+        .glyphicon-chevron-right {
+            right: 0;
+            margin: 0;
+        }
+    }
+}
+/*Golfkeeper Features*/
+.golfkeeper-features {
+    padding-top: 40px;
+    &.golfkeeper-page-about {
+        padding-top: 0;
+    }
+    
+}
+.golfkeeper-row-container {
+    .golfkeeper-row {
+        text-align: center;
+        padding: 60px 0;
+        .alt-screenshot {
+            figure {
+                display: inline-block;
+                max-width: 80%;
+            }
+        }
+        h3 {
+            font-size: $font-size-h1;
+            margin-top: 0;
+        }
+        p {
+            font-size: $font-size-h4;
+            font-weight: 300;
+        }
+        &.colored {
+            background-color: $info;
+            h3,
+            p {
+                color: #FFFFFF;
+            }
+            .alt-content {
+                margin-top: 30px;
+            }
+        }
+    }
+}
+/*Golfkeeper Subscription*/
+.golfkeeper-store {
+    &.golfkeeper-row-container {
+        .golfkeeper-row {
+            border-bottom: 1px solid #DDDDDD;
+        }
+    }
+    header {
+        margin-bottom: 30px;
+        h3 {
+            margin-bottom: 5px;
+        }
+        p {
+            color: $gray-light;
+            font-size: $font-size-h4;
+        }
+    }
+    form {
+        display: inline-block;
+        .form-control {
+            float: none;
+            display: inline-block;
+            clear: none;
+            color: #FFF;
+            width: auto;
+            background-color: $gray-lighter;
+            @include border-radius(4px, 4px);
+            border: none;
+            @include box-shadow(none);
+            font-size: $font-size-h4;
+            font-weight: 300;
+            padding: 15px 20px;
+            height: auto;
+            min-width: 290px;
+            margin-right: 15px;
+        }
+        .input-group {
+            .form-control {
+                border: 1px solid transparent;
+                color: $gray-dark;
+                @include transition(all 0.2s linear);
+                &:first-child {
+                    border-bottom-right-radius: 4px;
+                    border-top-right-radius: 4px;
+                }
+                &:focus,
+                &:active{
+                    background-color: #FFF;
+                    border-color: $gray-lighter;
+                }
+            }
+        }
+    }
+    .btn {
+        margin-top: 20px;
+        &.btn-lg {
+            padding: 15px 40px;
+            font-size: $font-size-h3;
+            line-height: $font-size-h3;
+        }
+    }
+}
+/*Golfkeeper Footer*/
+footer {
+    background-color: $dark;
+    padding: 60px 0;
+    text-align: center;
+}
+.golfkeeper-nav {
+    display: inline-block;
+    padding: 0;
+    li {
+        display: inline-block;
+        margin-right: 30px;
+        width: 100%;
+        &:last-of-type {
+            margin-right: 0;
+        }
+        &:first-of-type {
+            a {
+               border-top: 1px solid #494949; 
+            }
+        }
+        a {
+            border-bottom: 1px solid #494949;
+            color: #FFFFFF;
+            display: block;
+            font-size: $font-size-h4;
+            font-weight: 300;
+            padding: 10px 0;
+            i {
+                @include opacity(0.5);
+                @include transition(all 0.2s linear);
+            }
+            &:hover,
+            &:focus {
+                i {
+                    @include opacity(1);
+                }
+            }
+        }
+    }
+    &.social {
+        margin-top: 20px;
+        li {
+            width: auto;
+            a {
+                border-top: none !important;
+                border-bottom: none !important;
+            }
+        }
+    }
+}
+.golfkeeper-copyright {
+    margin-top: 40px;
+    p {
+        color: #FFFFFF;
+        font-weight: 300;
+    }
+}
+/*Verticle Lists*/
+.golfkeeper-verticle-list {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    li {
+        display: inline-block;
+        margin-top: 0 !important;
+        margin-right: 15px;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+        &:last-of-type {
+            margin-right: 0;
+        }
+        &.btn {
+            &.btn-lg {
+                padding: 0;
+            }
+            &.btn-primary {
+                a {
+                    .app-logo-container {
+                        background-color: $primary-light;
+                        @include transition(background 0.2s linear);
+                    }
+                }
+                &:hover,
+                &:focus{
+                    a {
+                        .app-logo-container {
+                            background-color: $primary;
+                        }
+                    }
+                }
+            }
+            &.btn-info {
+                a {
+                    .app-logo-container {
+                        background-color: $info-light;
+                        @include transition(background 0.2s linear);
+                    }
+                }
+                &:hover,
+                &:focus{
+                    a {
+                        .app-logo-container {
+                            background-color: $info;
+                        }
+                    }
+                }
+            }
+        }
+        > a {
+            float: left;
+            width: 100%;
+            text-align: left;
+            .app-logo-container {
+                @include border-radius(4px, 4px);
+                padding: 17px;
+                float: left;
+                i {
+                    margin: 0;
+                }
+            }
+            span {
+                color: #FFF;
+                float: left;
+                font-size: 18px;
+                font-weight: 300;
+                padding: 10px 20px;
+            }
+        }
+    }
+}
+/*
+* Icons
+*/
+.icon {
+    color: transparent;
+    text-indent: -999999px;
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 5px;
+    &.icon21 {
+        background: url(../img/sprites.png) left top no-repeat;
+        width: 21px;
+        height: 21px;
+    }
+    &.icon26 {
+        background: url(../img/sprites-social-icon.png) left top no-repeat;
+        width: 26px;
+        height: 26px;
+    }
+    &.icon68 {
+        background: url(../img/sprites.png) left top no-repeat;
+        background-size: 9px auto;
+        width: 48px;
+        height: 48px;
+    }
+    &.icon32 {
+        background: url(../img/sprites-app-icon.png) left top no-repeat;
+        background-size: 33px auto;
+        width: 32px;
+        height: 32px;
+    }
+    &.icon-fb {
+        background-position: 0px 1px;
+    }
+    &.icon-tw {
+        background-position: -62px 1px;
+    }
+    &.icon-li {
+        background-position: -131px 1px;
+    }
+    &.icon-gp {
+        background-position: -200px 1px;
+    }
+    &.icon-apple {
+        background-position: 0px 1px;
+    }
+    &.icon-android{
+        background-position: 0px -59px;
+    }
+    &.icon-arrow-down {
+        background-position: 2px -3px;
+    }
+    &.glyphicon-chevron-left {
+        background-position: 17px -8px;
+    }
+    &.glyphicon-chevron-right {
+        background-position: 19px -36px;
+    }
+}
+/*
+* Js/jQuery Widgets
+* Responsive Accordion
+*/
+.responsive-accordion {
+    margin: 0;
+    li {
+        margin: 0;
+    }
+    &.responsive-accordion-default {
+        li {
+            .responsive-accordion-head {
+                border: none;
+                border-bottom: 1px solid $gray-lighter;
+                color: #42A4BB;
+                font-size: 20px;
+                font-weight: 300;
+                padding: 15px 45px 15px 0;
+                &.active {
+                    color: #000000;
+                }
+                .icon {
+                    @include border-radius(100%,100%);
+                    background-image: none;
+                    background: url(../img/sprites-arrow.png) 0 0 no-repeat $gray-lighter;
+                    color: transparent;
+                    text-indent: -99999px;
+                    float: right;
+                    width: 35px;
+                    height: 35px;
+                    position: absolute;
+                    &.icon-arrow-right{
+                        background-position: 12px 11px;
+                    }
+                    &.icon-arrow-up{
+                        background-position: 11px -19px;
+                    }
+                }
+            }
+            .responsive-accordion-panel {
+                border: none;
+                border-bottom: 1px solid $gray-lighter;
+                padding: 15px 0;
+            }
+        }
+    }
+}
+.alt-element {
+    padding: 60px 0;
+    text-align: center;
+    &:first-of-type {
+        padding-top: 0;
+    }
+    &.alt-element-video {
+        background-color: $gray-dark;
+        text-align: center;
+        h3 {
+            color: #FFFFFF;
+        }
+        iframe {
+            margin-top: 30px;
+        }
+    }
+}
+/*
+* Media Queries
+* iPad PORTRAIT
+*/
+$media: screen;
+$feature: min-width;
+$value: 768px;
+
+@media only #{$media} and ($feature: $value) {
+    /*Buttons*/
+    .btn {
+        &.btn-lg {
+            padding: 10px 30px;
+        }
+    }
+    .logo {
+        max-width: 230px;
+    }
+    .verticle-align {
+        display: table;
+        .verticle-align-cell {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+    .alt-element {
+        text-align: left;
+    }
+    .golfkeeper-intro {
+        height: 100%;
+        padding: 0;
+        text-align: left;
+        .golfkeeper-intro-content {
+            .golfkeeper-screenshot {
+                figure {
+                    padding: 0;
+                    text-align: left;
+                    img {
+                        max-width: 100%;
+                        display: block;
+                    }
+                }
+            }
+            .brand-heading {
+                margin-top: 110px;
+            }
+        }
+    }
+    .not-front {
+        .golfkeeper-intro {
+            .golfkeeper-intro-content {
+                .golfkeeper-screenshot{
+                    figure {
+                        img {
+                            float: right;
+                            margin-top: -80px;
+                        }
+                    }
+                } 
+            }
+        }
+    }
+    .golfkeeper-about {
+        .golfkeeper-content {
+            .lead {
+                font-size: $font-size-h3;
+                line-height: 32px;
+                padding: 40px;
+            }
+        }
+    }
+    .carousel {
+        .carousel-control {
+            span {
+                border: 2px solid #CCCCCC;
+            }
+        }
+    }
+    .golfkeeper-row-container {
+        .golfkeeper-row {
+            text-align: left;
+            .alt-screenshot {
+                figure {
+                    max-width: 50%;
+                    float: left;
+                }
+            }
+            &:nth-child(odd) {
+                .alt-screenshot {
+                    figure {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+    .golfkeeper-store {
+        .golfkeeper-row {
+            text-align: center;
+        }
+        form {
+            .form-control {
+                min-width: 320px;
+            }
+            .btn {
+                margin-top: -5px;
+            }
+        }
+    }
+    .golfkeeper-verticle-list {
+        li {
+            width: auto;
+            margin-right: 15px;
+            margin-bottom: 0;
+        }
+    }
+    .golfkeeper-nav {
+        li {
+            width: auto;
+            &:last-of-type {
+                margin-right: 0;
+            }
+            &:first-of-type {
+                a {
+                   border-top: none; 
+                }
+            }
+            a {
+                border-bottom: none;
+            }
+        }
+    }
+    .responsive-accordion {
+        &.responsive-accordion-default {
+            li {
+                .responsive-accordion-head {
+                    i {
+                        top: 10px;
+                    }
+                }
+            }
+        }
+    }
+    /*
+    * Icons
+    */
+    .icon {
+        &.icon68 {
+            background-size: 19px auto;
+            width: 68px;
+            height: 68px;
+        }
+        &.glyphicon-chevron-left {
+            background-position: 20px -32px;
+        }
+        &.glyphicon-chevron-right {
+            background-position: 24px -92px;
+        }
+    }
+}
+/*
+* Media Queries
+* iPad LANDSCAPE / DESKTOP
+*/
+$media: screen;
+$feature: min-width;
+$value: 992px;
+
+@media only #{$media} and ($feature: $value) {
+    .logo {
+        max-width: 265px;
+    }
+    .navbar-brand {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .golfkeeper-intro {
+        .golfkeeper-intro-content {
+            .golfkeeper-screenshot {
+                figure {
+                    width: 100%;
+                    height: 462px;
+                    position: relative;
+                    overflow: hidden;
+                    img {
+                        position: absolute;
+                        right: 0 !important;
+                        bottom: 0 !important;
+                        left: auto !important;
+                    }
+                }
+            }
+            .brand-heading {
+                font-size: $font-size-h1;
+                margin-top: 180px;
+            }
+            .intro-text {
+                font-size: $font-size-large;
+                max-width: 80%;
+            }
+        }
+    }
+    .golfkeeper-about {
+        .golfkeeper-content {
+            .lead {
+                font-size: $font-size-h2;
+                line-height: 38px;
+                padding: 50px;
+            }
+        }
+    }
+}
+/*
+* Media Queries
+* LARGE DESKTOP
+*/
+$media: screen;
+$feature: min-width;
+$value: 1200px;
+
+@media only #{$media} and ($feature: $value) {
+    .golfkeeper-page-content {
+        padding: 60px 0;
+        h3 {
+            font-size: 32px;
+        }
+        p {
+            font-size: 20px;
+        }
+    }
+    .golfkeeper-intro {
+        background-attachment: fixed;
+        background-position: 0 0;
+        .golfkeeper-intro-content {
+            .golfkeeper-screenshot {
+                figure {
+                    height: 567px;
+                }
+            }
+            .brand-heading {
+                font-size: $font-size-h0;
+                margin-top: 240px;
+            }
+            .intro-text {
+                font-size: $font-size-h3;
+                line-height: 32px;
+                max-width: 80%;
+            }
+        }
+    }
+    .golfkeeper-about {
+        .golfkeeper-content {
+            .lead {
+                font-size: $font-size-h1;
+                line-height: 44px;
+                padding: 60px;
+            }
+        }
+    }
+    .golfkeeper-row-container {
+        .golfkeeper-row {
+            .alt-screenshot {
+                figure {
+                    max-width: 100%;
+                }
+            }
+            h3 {
+                font-size: $font-size-h0;
+            }
+            p {
+                font-size: $font-size-h3;
+            }
+        }
+    }
+    .golfkeeper-store {
+        &.golfkeeper-row-container {
+            .golfkeeper-row {
+                h3 {
+                    font-size: 48px;
+                }
+            }
+        }
+        form {
+            .form-control {
+                min-width: 460px;
+            }
+        }
+    }
+    .responsive-accordion {
+        &.responsive-accordion-default {
+            li {
+                .responsive-accordion-head {
+                    font-size: 24px;
+                    i {
+                        top: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

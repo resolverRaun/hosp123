@@ -1,0 +1,1 @@
+[28-Sep-2014 00:35:54] PHP Fatal error:  Call to a member function userdata() on a non-object in /home/cedemo/public_html/dareventure/admin-panel/application/modules/login/controllers/login.php on line 8
